@@ -15,13 +15,13 @@ df = pd.DataFrame(mock_data)
 st.title("Flex Living Reviews Dashboard")
 
 # Display data for debugging
-st.write(df.head())
+st.write("### Preview of Reviews Data", df.head())
 
 # ---- Recurring Issues Detection ----
 st.subheader("Recurring Issues (Negative Reviews)")
 
 # Filter only reviews with rating <= 3 (likely negative/neutral)
-negative_reviews = filtered[filtered["rating"] <= 3]["review_text"]
+negative_reviews = df[df["rating"] <= 3]["review_text"]
 
 if not negative_reviews.empty:
     # Combine all text
@@ -34,10 +34,9 @@ if not negative_reviews.empty:
     wordcloud = WordCloud(width=800, height=400, background_color="white").generate(text)
 
     # Display in Streamlit
-    fig, ax = plt.subplots(figsize=(10,5))
+    fig, ax = plt.subplots(figsize=(10, 5))
     ax.imshow(wordcloud, interpolation="bilinear")
     ax.axis("off")
     st.pyplot(fig)
 else:
     st.info("No negative reviews found in the current selection 🚀")
-
