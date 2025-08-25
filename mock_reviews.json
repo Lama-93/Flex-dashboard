@@ -1,1 +1,41 @@
 #Data
+{
+  "reviews": [
+    {
+      "property_id": 101,
+      "property_name": "Downtown Loft",
+      "review_text": "Great location and very clean apartment!",
+      "rating": 5,
+      "category": "Cleanliness",
+      "channel": "Airbnb",
+      "date": "2025-01-10"
+    },
+    {
+      "property_id": 101,
+      "property_name": "Downtown Loft",
+      "review_text": "Check-in process was confusing and took too long.",
+      "rating": 3,
+      "category": "Check-in",
+      "channel": "Booking.com",
+      "date": "2025-01-15"
+    },
+    {
+      "property_id": 102,
+      "property_name": "Seaside Villa",
+      "review_text": "Amazing views, but Wi-Fi was unreliable.",
+      "rating": 4,
+      "category": "Amenities",
+      "channel": "Airbnb",
+      "date": "2025-02-05"
+    },
+    {
+      "property_id": 103,
+      "property_name": "City Studio",
+      "review_text": "Too noisy at night, couldn’t sleep well.",
+      "rating": 2,
+      "category": "Location",
+      "channel": "Expedia",
+      "date": "2025-02-20"
+    }
+  ]
+}
