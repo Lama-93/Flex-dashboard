@@ -2,4 +2,5 @@ streamlit
 pandas
 matplotlib
 wordcloud
-
+re
+json
