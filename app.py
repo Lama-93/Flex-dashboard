@@ -1,6 +1,21 @@
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import re
+import streamlit as st
+import pandas as pd
+import json
+
+# Load mock reviews JSON file
+with open("mock_reviews.json") as f:
+    mock_data = json.load(f)
+
+# Convert JSON to DataFrame (assuming list of reviews)
+df = pd.DataFrame(mock_data)
+
+st.title("Flex Living Reviews Dashboard")
+
+# Display data for debugging
+st.write(df.head())
 
 # ---- Recurring Issues Detection ----
 st.subheader("Recurring Issues (Negative Reviews)")
