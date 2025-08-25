@@ -1,7 +1,24 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+from keras.models import load_model
+import pickle
+from datetime import datetime
+from dotenv import load_dotenv
+import os
+import requests
+from bs4 import BeautifulSoup
 import json
+import time
+# Load environment variables from .env file
+load_dotenv()
+# Streamlit user interface
+st.title('Crude Oil Dashboard: Welcome to GeopPetro, Your Price Prediction and Production Forecasting Application.')
 
-st.title("Manager Dashboard")
+# import streamlit as st
+# import json
+
+# st.title("Manager Dashboard")
 
 # # Load reviews
 # with open("mock_reviews.json", "r") as f:
