@@ -1,43 +1,21 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import re
 import json
-from wordcloud import WordCloud
 
-# ---- Load JSON ----
+st.title("Manager Dashboard")
+
+# Load reviews
 with open("mock_reviews.json", "r") as f:
-    mock_data = json.load(f)
+    data = json.load(f)
 
-# Your JSON has {"reviews": [ ... ]}
-df = pd.DataFrame(mock_data["reviews"])
+reviews = data.get("reviews", [])
 
-st.title("Flex Living Reviews Dashboard")
+# Debug: print raw data
+st.subheader("Raw Data Preview")
+st.json(reviews)
 
-# Show some data first
-st.subheader("Sample Reviews Data")
-st.write(df.head())
-
-# ---- Recurring Issues Detection ----
-st.subheader("Recurring Issues (Negative Reviews)")
-
-# Filter only reviews with rating <= 3
-negative_reviews = df[df["rating"] <= 3]["review_text"]
-
-if not negative_reviews.empty:
-    # Combine text
-    text = " ".join(negative_reviews.tolist())
-
-    # Cleanup
-    text = re.sub(r"[^A-Za-z\s]", "", text)
-
-    # Generate wordcloud
-    wordcloud = WordCloud(width=800, height=400, background_color="white").generate(text)
-
-    # Show in Streamlit
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.imshow(wordcloud, interpolation="bilinear")
-    ax.axis("off")
-    st.pyplot(fig)
+# Show reviews in table
+if reviews:
+    st.subheader("Reviews Table")
+    st.write(reviews)
 else:
-    st.info("No negative reviews found 🚀")
+    st.warning("No reviews found in mock_reviews.json")
