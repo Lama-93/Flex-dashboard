@@ -15,7 +15,8 @@ df = pd.DataFrame(mock_data)
 st.title("Flex Living Reviews Dashboard")
 
 # Display data for debugging
-st.write("### Preview of Reviews Data", df.head())
+st.subheader("Raw Data Preview")
+st.write(df.head())
 
 # ---- Recurring Issues Detection ----
 st.subheader("Recurring Issues (Negative Reviews)")
@@ -34,7 +35,7 @@ if not negative_reviews.empty:
     wordcloud = WordCloud(width=800, height=400, background_color="white").generate(text)
 
     # Display in Streamlit
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(10,5))
     ax.imshow(wordcloud, interpolation="bilinear")
     ax.axis("off")
     st.pyplot(fig)
